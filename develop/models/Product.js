@@ -36,19 +36,15 @@ Product.init(
     },
     category_id: {
       type: DataTypes.INTEGER,
-      
+      allowNull: true,
+      references:{
+        model: 'category',
+        key: 'id'
+      },
+
     }
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'location'
-  }
-);
-    // define columns
-  },
+
   {
     sequelize,
     timestamps: false,
