@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(productData);
     } catch (err) {
       res.status(400).json(err);
-    };
+    }
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -75,6 +75,7 @@ router.post('/', async (req, res) => {
     });
 });
 
+// update product
 // update product
 router.put('/:id', (req, res) => {
   // update product data
@@ -103,7 +104,6 @@ router.put('/:id', (req, res) => {
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
-
       // run both actions
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
@@ -125,12 +125,10 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-
     if (!productData) {
       res.status(404).json({ message: 'No product found with this id!' });
       return;
     }
-
     res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
