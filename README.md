@@ -24,7 +24,7 @@ Syncing up an express.js api with sequelize to create a database that can be eas
   Application intended for stock/inventory upkeep.
    
   ## Demo
-
+  [Video](https://drive.google.com/file/d/1Eu8vHg30I_rDUEFCiVVmUpdK6hYeRT5u/view)
   ## Contributions
   BCS, Tutors, creators of said software.
 
